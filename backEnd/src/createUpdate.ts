@@ -6,7 +6,7 @@ interface UpdateData{
     [index:string]:{
         id:string,
         summary:string
-    }
+    }|string,
 }
 function writeToJSONFile(obj: any, filePath: string): void {
     try {
@@ -35,18 +35,27 @@ export default async function createUpdate(){
     console.log("creating an update");
     const dataToWrite:UpdateData = {}
     // get subs
+    console.log("getting subs")
     const subs = await getSubscriptions()
+    let summarries = ""
     // get captions, summarise them and input data to write
     for (let index = 0; index < subs.length; index++) {
+        console.log(`Summarising ${index+1}/${subs.length}`)
         const vid = subs[index];
         const cap = await getCaptions(vid.id);
         const summary = await summariseContent(cap)
+        summarries += " " + summary
         dataToWrite[vid.title] = {
             id:vid.id,
             summary:summary!
         }
     }
+    console.log("finished summaries, now creating main summary")
+    // create main summary 
+    const mainSummary = await summariseContent(summarries);
+    dataToWrite['mainSummary'] = mainSummary!
     // write data to disk
     writeToJSONFile(dataToWrite, `data/previousUpdateData/${getTodaysDateAsString()}_update.json`)
     writeToJSONFile(dataToWrite, `data/currentData.json`)
+    console.log("finished creating update")
 }

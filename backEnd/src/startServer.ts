@@ -4,7 +4,7 @@ import cors from 'cors';
 
 export default function startServer(){
     const app = express();
-    const PORT = 3000; 
+    const PORT = 4000; 
     // add cors server
     app.use(cors({
         origin: "*", 

@@ -64,20 +64,29 @@ function createUpdate() {
         console.log("creating an update");
         const dataToWrite = {};
         // get subs
+        console.log("getting subs");
         const subs = yield (0, youtube_1.getSubscriptions)();
+        let summarries = "";
         // get captions, summarise them and input data to write
         for (let index = 0; index < subs.length; index++) {
+            console.log(`Summarising ${index + 1}/${subs.length}`);
             const vid = subs[index];
             const cap = yield (0, youtube_1.getCaptions)(vid.id);
             const summary = yield (0, gpt_1.default)(cap);
+            summarries += " " + summary;
             dataToWrite[vid.title] = {
                 id: vid.id,
                 summary: summary
             };
         }
+        console.log("finished summaries, now creating main summary");
+        // create main summary 
+        const mainSummary = yield (0, gpt_1.default)(summarries);
+        dataToWrite['mainSummary'] = mainSummary;
         // write data to disk
         writeToJSONFile(dataToWrite, `data/previousUpdateData/${getTodaysDateAsString()}_update.json`);
         writeToJSONFile(dataToWrite, `data/currentData.json`);
+        console.log("finished creating update");
     });
 }
 exports.default = createUpdate;

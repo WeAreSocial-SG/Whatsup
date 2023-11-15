@@ -31,7 +31,7 @@ const fs = __importStar(require("fs"));
 const cors_1 = __importDefault(require("cors"));
 function startServer() {
     const app = (0, express_1.default)();
-    const PORT = 3000;
+    const PORT = 4000;
     // add cors server
     app.use((0, cors_1.default)({
         origin: "*",
