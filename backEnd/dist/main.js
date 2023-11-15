@@ -14,12 +14,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 console.clear();
 const createUpdate_1 = __importDefault(require("./createUpdate"));
-(() => __awaiter(void 0, void 0, void 0, function* () {
-    console.log('-----------');
-    console.log('-----------');
-    console.log('-----------');
-    console.log('-----------');
-    console.log('-----------');
-    console.log('-----------');
-    yield (0, createUpdate_1.default)();
-}))();
+const node_cron_1 = __importDefault(require("node-cron"));
+const startServer_1 = __importDefault(require("./startServer"));
+// setup cron job
+const forceToCreateNewUpdate = false;
+const scheduledTask = node_cron_1.default.schedule('0 0 * * 0', () => __awaiter(void 0, void 0, void 0, function* () { (0, createUpdate_1.default)(); }), { timezone: 'Asia/Singapore' });
+if (forceToCreateNewUpdate) {
+    (0, createUpdate_1.default)();
+}
+// start express server
+const server = (0, startServer_1.default)();

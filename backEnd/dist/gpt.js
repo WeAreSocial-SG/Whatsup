@@ -39,31 +39,49 @@ const configuration = new openai_1.default({
     apiKey: dotenv_1.keys.openAi
 });
 const openai = new openai_1.OpenAI(configuration);
-const splitStringIntoArray = (inputString) => {
-    const words = inputString.split(' ');
-    const maxWordsPerChunk = 300;
-    const chunks = [];
-    for (let i = 0; i < words.length; i += maxWordsPerChunk) {
-        const chunk = words.slice(i, i + maxWordsPerChunk).join(' ');
-        chunks.push(chunk);
+function countWords(str) {
+    return str.split(' ').length;
+}
+function chopStringIntoArray(text, chunkSize = 1000) {
+    const words = text.split(' ');
+    const chunkedStrings = [];
+    for (let i = 0; i < words.length; i += chunkSize) {
+        const chunk = words.slice(i, i + chunkSize);
+        const chunkedString = chunk.join(' ');
+        chunkedStrings.push(chunkedString);
     }
-    return chunks;
-};
+    return chunkedStrings;
+}
+// for when the content is larger than 4096 tokens
+function compressContentForGpt(content) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let finalContent = content;
+        while (countWords(finalContent) > 2800) {
+            const chunks = chopStringIntoArray(content, 2800);
+            let newFinalContent = "";
+            for (let index = 0; index < chunks.length; index++) {
+                const chunk = chunks[index];
+                const summary = yield summariseContent(chunk, "make it less than 1000 words");
+                newFinalContent += " " + summary;
+            }
+            finalContent = newFinalContent;
+        }
+        return finalContent;
+    });
+}
 // main function
 function summariseContent(content, condition = "make it less than 100 words") {
     return __awaiter(this, void 0, void 0, function* () {
-        // split long article into chunks of 300 words ish
-        const chunks = splitStringIntoArray(content);
-        console.log(chunks.length);
-        // prepare the chunks 
-        const preparedChunks = chunks.map((elem) => {
-            return { role: "user", content: elem };
-        });
+        let toSummarise = content;
+        // compress content if it's bigger then 4096 tokens
+        if (countWords(toSummarise) > 2800) {
+            toSummarise = yield compressContentForGpt(toSummarise);
+        }
         const completion = yield openai.chat.completions.create({
             model: "gpt-4",
             messages: [
                 { role: "user", content: "here's an article/transcript. please summarise it" },
-                ...preparedChunks,
+                { role: "user", content: toSummarise },
                 { role: "user", content: condition },
             ],
         });

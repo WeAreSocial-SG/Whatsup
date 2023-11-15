@@ -1,0 +1,38 @@
+{
+  "The Easiest UI for Stable Diffusion XL – Fooocus": {
+    "id": "558W8rfnP-Q",
+    "summary": "The stable diffusion model, used primarily for image generation, now has an easier user interface called Fooocus. Developed by Ilyasviel, the system allows for image generation directly on a gaming PC, with high resolution and quality by using Stable Diffusion XL. The advanced settings provide options for performance, aspect ratios, number of images, image seed, and style. Fooocus is anticipated to be a time-saving tool for both new and experienced users."
+  },
+  "AI will blow up Hollywood - but not how you think": {
+    "id": "BFjWKMvINdc",
+    "summary": "The increasing integration of AI into the film-making and storytelling processes stirs up concerns among artists who fear their creativity may be replaced. Many artists worry about their works being used to train AI without their consent. Some studios aim to exploit artists' likenesses through machines, an issue currently causing unrest. Yet, AI also empowers creators to dream big and implement high-tier effects at a lower cost. Balance can be achieved if copyright law is adhered to, consent is sought, and new styles are developed instead of mimicking existing works. AI can revolutionise creativity if harnessed correctly."
+  },
+  "How to Install and Use Stable Diffusion (June 2023) - automatic1111 Tutorial": {
+    "id": "nBpD-RbglPw",
+    "summary": "The article provides a tutorial on installing and using the Stable Diffusion AI image-generating software. It covers system requirements, installation process, model selection, extension usage, and bias issues. The software is praised for high-quality local image generation and user-friendly features. It also highlights using 'inpainting' with Civit AI for editing image parts and suggests ways to adjust facial details. The tutorial encourages experimenting with the software and hints toward more detailed guidance in future posts.\n"
+  },
+  "INSTALL UNCENSORED TextGen Ai WebUI LOCALLY in 1 CLICK!": {
+    "id": "C-7jGYOGvy4",
+    "summary": "This article explains how to install the Ultra Awesome Bot Assistant (UABA) Text Generation Web UI on a local computer for AI communication in both text and speech. It allows users to interact with virtual characters and AI models from Huggingface.co, with advanced features including text-to-speech functionality from Eleven Labs. It details how to generate API keys, convert voice into text in real-time, and limit usage to available words. The author also introduces an alternative free voice generator tool called srow. Patreon supporters get access to additional features.\n"
+  },
+  "MASTER LORA OBJECT Training FOR SDXL! QUICK &amp; EASY!": {
+    "id": "aY3mg6klvWo",
+    "summary": "This article provides a step-by-step guide on using Laura in stable diffusion to train objects using your own images. Key steps include high-quality image collection, background removal, image upscaling, accurate captioning, and setting precise object training parameters. Some tips include maintaining a low learning rate and using in-painting techniques for scale adjustment. The author offers support through Patreon and Discord and acknowledges the contribution of supporters."
+  },
+  "TRAIN Perfect SDXL LoRA Clothing! Generate ANY OUTFITS!": {
+    "id": "_n93IxxUwB0",
+    "summary": "This is an instructional transcript on training artificial intelligence (AI) to recognise and render clothing items using the Laura software. It provides comprehensive guidelines on gathering and modifying high-resolution images, including cropping, blurring and augmenting for effective training. It recommends specific training parameters and suggests tools like BL captioning for image description. The article estimates a training duration of roughly 2.5 hours and encourages trying out the model and subscribing to the channel for extended support."
+  },
+  "META QUEST 3: The Good, The Bad, &amp; The Ugly": {
+    "id": "dejZCWYCdSI",
+    "summary": "The article discusses the new Oculus Quest 3 VR headset, noting its improved processor, resolution, and controllers. However, it also mentions issues with comfort, frequent guardian system setups, and limited battery life. While it recommends the device for first-time VR users given its advanced features and potential, it suggests that current Quest 2 users may not need to upgrade immediately. The Quest 3 could become ideal when more optimized games are released or if there's a price drop, similar to the Quest Pro.\n"
+  },
+  "THE BEYOND: A Massive Leap For VR Headsets": {
+    "id": "ZCXmv27o3AU",
+    "summary": "The article reviews the VR headset, Beyond, highlighting it as a lightweight, custom-fit device with high-definition displays. It offers excellent tracking quality, an immersive experience, and a high-quality microphone. However, its drawbacks include mediocre brightness, small sweet spot, and lower field of view. While ideal for Steam VR users who prioritize comfort and display quality, the article suggests there are cheaper alternatives offering similar experiences. Despite its limitations, the author recognises the product's potential for sparking new technologies in the VR industry.\n"
+  },
+  "The Meta Quest 3 has FINALLY Launched!": {
+    "id": "ewbDlQXy7m0",
+    "summary": "This article discusses new VR headset releases, particularly Meta's Quest 3 and the Visor. It highlights Quest 3's high resolution, improved field of view but shorter battery life. It introduces the Visor's two versions and pricing, but also raises skepticism about the manufacturer's transparency. There are leaks about Quest 3's competitor, Pico 5, while Vario has reduced the price of its product. The Xbox cloud gaming will be available on Quest, enhancing its mainstream appeal.\n"
+  }
+}
