@@ -21,11 +21,9 @@ function getTodaysDateAsString(): string {
     const year: number = today.getFullYear();
     const month: number = today.getMonth() + 1; // Months are zero-based, so we add 1
     const day: number = today.getDate();
-
     // Formatting the date components to ensure double digits for single-digit months/days
     const formattedMonth: string = month < 10 ? `0${month}` : `${month}`;
     const formattedDay: string = day < 10 ? `0${day}` : `${day}`;
-
     // Creating the date string in YYYY-MM-DD format
     const dateString: string = `${year}-${formattedMonth}-${formattedDay}`;
     return dateString;

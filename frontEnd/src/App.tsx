@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import VideoBlock from "./components/videoBlock";
 
 export default function App() {
-  const [contentData, setContentData] = useState<any>()
+  const [contentData, setContentData] = useState<any>(
+    {date:"yy-mm-dd", mainSummary:"oh boy we screwed up somewhere"}
+  )
 
   // load data from server
   useEffect(()=>{
     (async ()=>{
-      const data = await fetch("http://localhost:4000/currentUpdate")
-      console.log(data)
+      const data = await fetch("http://13.214.102.62:4000/currentUpdate")
       setContentData(await data.json())
     })()
   }, [])
