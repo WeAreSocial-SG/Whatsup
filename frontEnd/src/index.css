@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
+
 /* -------------  My css Stuff */
 /* debug */
 .debugRedLine              {outline: solid 3px rgba(255, 0, 0, 0.3);}
 /* *                          {outline: solid 3px rgba(255, 0, 0, 0.3);} */
+/* *                          {outline: solid 1px rgb(47, 255, 0);} */
 
 /* removing default spacings */
 *                          {padding: 0;margin: 0; box-sizing: border-box}
@@ -47,18 +51,35 @@
 
 
 /* general */
-html{height: 100%; width: 100%; display: flex; justify-content: center; background-color: rgb(29, 28, 32);}
-*{color:white}
+html{height: 100%; width: 100%; display: flex; justify-content: center; background-color: rgb(0, 0, 0);}
+*{color: #c5fc97}
 body{width: 100%; max-width: 1000px;}
+*{max-width: 100%;}
+/* .border {outline: solid 1px rgb(47, 255, 0);} */
 
-/* title  */
+/* fonts */
+.noto{font-family: 'Noto Serif Display', serif !important;}
+.subtitle
+* {font-family: 'Josefin Sans', sans-serif;}
+
+/* heading  */
 .main h1{font-size: 5rem; display: flex; justify-content: center;}
+.title {font-weight: 900;}
 
 /* subtitle */
 .subtitle div{display: flex; width: 100%;}
-.subtitle div h2:first-child{flex-grow: 1;}
+.subtitle div h2:first-child{flex-grow: 1; font-weight: 900;}
 
 /* video block */
 .videoBlock{display: flex;}
 .videoBlock .videoBlockContent{flex-grow: 1;}
-iframe{border:none}
+iframe{border:none; max-width: 100%;}
+
+
+@media (max-width: 600px) {
+    .heading h1{
+        font-size: 3rem;
+    }
+    iframe{width: 100%;}
+    .videoBlock{flex-wrap: wrap;}
+}

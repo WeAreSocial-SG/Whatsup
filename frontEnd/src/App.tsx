@@ -17,16 +17,18 @@ export default function App() {
   const contentKeys = contentData ? Object.keys(contentData) : []
 
   return (
-    <div className="main">
+    <div className="main border">
       {/* title */}
-      <h1 className="paddingRem">What's up</h1>
+      <div className="heading flex border">
+        <h1 className="paddingRem noto title">What's Up?</h1>
+      </div>
       {/* subtitle */}
       <div className="subtitle">
         <div>
-          <h2 className="paddingRem">What happened this week in innovative tech</h2>
-          <h2 className="paddingRem">{contentData.date}</h2>
+          <h2 className="paddingRem noto border">What happened this week in innovative tech</h2>
+          <h2 className="paddingRem noto border">{contentData.date}</h2>
         </div>
-        <p className="weekSummary paddingRem">{contentData.mainSummary}</p>
+        <p className="weekSummary paddingRem border">{contentData.mainSummary}</p>
       </div>
       {/* main content */}
       <div className="contentContainer">
