@@ -9,7 +9,7 @@ export default function App() {
   // load data from server
   useEffect(()=>{
     (async ()=>{
-      const data = await fetch("http://13.214.102.62:4000/currentUpdate")
+      const data = await fetch("https://elcloudapp.com/forward?to=http://13.214.102.62:4000/currentUpdate")
       setContentData(await data.json())
     })()
   }, [])
