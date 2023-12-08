@@ -24,10 +24,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const openai_1 = __importStar(require("openai"));
-const dotenv_1 = require("./dotenv");
+const dotenv_js_1 = require("./dotenv.js");
 // seutp open ai
 const configuration = new openai_1.default({
-    apiKey: dotenv_1.keys.openAi
+    apiKey: dotenv_js_1.keys.openAi
 });
 const openai = new openai_1.OpenAI(configuration);
 function countWords(str) {

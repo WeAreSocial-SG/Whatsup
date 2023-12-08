@@ -28,14 +28,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getSubscriptions = exports.getCaptions = void 0;
 const youtube_search_1 = __importDefault(require("youtube-search"));
-const dotenv_1 = require("./dotenv");
+const dotenv_js_1 = require("./dotenv.js");
 const fs = __importStar(require("fs"));
-const time_1 = require("./time");
+const time_js_1 = require("./time.js");
 const getSubtitles = require('youtube-captions-scraper').getSubtitles;
 async function getLatestVideosFromChannel(channelId, num = 3) {
     const opts = {
         maxResults: num,
-        key: dotenv_1.keys.googleCloud,
+        key: dotenv_js_1.keys.googleCloud,
         channelId: channelId,
         order: 'date',
     };
@@ -73,7 +73,7 @@ async function getSubscriptions() {
         // prune videos older than a week
         const videosFromThisWeek = videosFromChannel.results.filter((vidData) => {
             const date = vidData.publishedAt.split('T')[0];
-            return !(0, time_1.isDateMoreThanAWeekOld)(date);
+            return !(0, time_js_1.isDateMoreThanAWeekOld)(date);
         });
         // save latest videos
         latestVideosFromThisWeek = [...latestVideosFromThisWeek, ...videosFromThisWeek];

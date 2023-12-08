@@ -1,5 +1,5 @@
 import Configuration, { OpenAI } from "openai";
-import { keys } from "./dotenv";
+import { keys } from "./dotenv.js";
 
 // seutp open ai
 const configuration:any = new Configuration({
