@@ -5,7 +5,7 @@ import startServer from "./startServer";
 
 
 // setup cron job
-const forceToCreateNewUpdate = false
+const forceToCreateNewUpdate = true
 const scheduledTask = cron.schedule(
   '0 0 * * 0',
   async() => {createUpdate()}, 

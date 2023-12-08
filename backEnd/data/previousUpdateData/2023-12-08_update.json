@@ -1,31 +1,35 @@
 {
-  "The Easiest UI for Stable Diffusion XL – Fooocus": {
-    "id": "558W8rfnP-Q",
-    "summary": "Albert Bozesan introduces Fooocus, a new user interface for Stable Diffusion by Ilyasviel. It is simpler than its predecessors, requiring no Discord or paid subscription, but supports high-quality image generation on personal PCs. Albert discusses how to install the interface from GitHub, shows its straightforward features, and explains its advanced settings. He suggests Foocus is both an excellent introduction for newcomers, and an efficient tool for experienced Stable Diffusion users."
+  "CREATE UNCENSORED AI Voices for FREE! Just 10s AUDIO NEEDED!": {
+    "id": "lZkQUOpLg6g",
+    "summary": "The article highlights the creation of custom AI voices for free using the Cookie TTS extension. It covers installation, creating custom voices, enhancing audio quality, and applying the voices in various scenarios. The process involves using tools like Audacity and Adobe Podcast, as well as recording and converting spoken audio into text. The potential for creative interactions with the technology is emphasized. The creator requests support on Patreon, encourages feedback, and thanks the audience for their support."
   },
-  "AI will blow up Hollywood - but not how you think": {
-    "id": "BFjWKMvINdc",
-    "summary": "The article discusses the intersection of Artificial Intelligence (AI) and creative industries. It emphasizes how AI can aid artists in their work and expedite creative processes, but also acknowledges concerns surrounding copyright infringement, economic devaluation of manual artistic work, and ethical issues. The author proposes adhering to copyright regulations and developing unique styles, rather than imitating existing ones. In summary, they argue that if appropriately utilized, AI can empower creators and revolutionize the future of creativity.\n"
+  "The Quest 3&#39;s First BIG Update &amp; New Haptic Gloves!": {
+    "id": "S-Q7QnQktPY",
+    "summary": "The article covers VR updates including Meta Quest 2, 3, and Pro headsets' V60 launch, VR game delays, Fluid Reality's haptic gloves, LEGO VR game release, and University of Scuba's VR temperature perception tech. It also mentions temporary halt in Meta's accessory sales and personal news about hosting a VR Christmas party. It addresses a reader's question about Vario xr4 and Apple Vision Pro competition, expressing that both serve different purposes. The article briefly discusses Apple's Vision Pro for enterprise applications and concludes by thanking supporters and encouraging engagement."
   },
-  "How to Install and Use Stable Diffusion (June 2023) - automatic1111 Tutorial": {
-    "id": "nBpD-RbglPw",
-    "summary": "The video tutorial explains how to install and use Stable Diffusion AI image generating software on Nvidia GPUs of the 20 series on Windows PCs with Python 3.10.6 using the Auto 1111 Web UI interface. It guides through selecting and installing models, leveraging features like 'Controlnet' for more accurate image generation. It also demonstrates the \"Image-to-Image\" feature for refining image details and using Functional In-Painting for editing pre-existing images. More tutorial content is available for further learning."
+  "Gemini: ChatGPT-Like AI From Google DeepMind!": {
+    "id": "ex1GeX0IhJQ",
+    "summary": "Google has unveiled Gemini, a powerful AI that can handle various tasks such as assisting with math homework, analyzing research papers, coding, and more. Gemini can also perform in-depth analysis on a wide range of topics, surpassing other AI models like ChatGPT and even specialized AIs. With its release in three sizes, it's even available on the Pixel 8 Pro. The paper suggests that Gemini's capabilities have the potential to revolutionize AI. You can already try the pro version of Gemini in Bard. Overall, it's an exciting advancement in AI technology."
   },
-  "MASTER LORA OBJECT Training FOR SDXL! QUICK &amp; EASY!": {
-    "id": "aY3mg6klvWo",
-    "summary": "This article walks the reader through the process of using software called Laura to train images. This involves visual data preparation, configuring, and starting the training process, potentially outsourcing this due to high GPU demands. The best model generated is identified and can be refined for real-life usage. The 'impainting' tool within the software enables alterations or transformations. For best results, a noise strength between 0.5 and 0.75 is recommended. Additional refinement can be done through external programs like Photoshop.\n"
+  "Text To Image AIs Just Got Supercharged!": {
+    "id": "7rvjZQy_RQs",
+    "summary": "The article discusses three groundbreaking advancements. Firstly, Adobe's Firefly AI has significantly improved its text-to-image capabilities. Secondly, rich text controls for creating expressive images have been introduced. Lastly, a new concept allows for the creation and alteration of virtual objects in the real world, opening doors for simulation-based training and innovative AI developments. These advancements show great promise for the future."
   },
-  "TRAIN Perfect SDXL LoRA Clothing! Generate ANY OUTFITS!": {
-    "id": "_n93IxxUwB0",
-    "summary": "The article is a tutorial on training AI to create virtual outfits using the software, Coya SS GUI. Utilizing high resolution images of clothes and a Deep Learning model called Stable diffusion Excel, the AI is trained to generate precise clothing models. The guide also suggests techniques to improve the AI's performance, such as image segmentation, color and flip augmentation, and adjusting rate parameters. The method also involves generating a custom character wearing specific clothes. Lastly, the author highlights additional resources available to supporters on Patreon."
+  "Stable Video AI Watched 600,000,000 Videos!": {
+    "id": "XwDaQKOxgFY",
+    "summary": "Three new AI technologies, Stable Video, Emu Video, and Emu Edit, are revolutionizing the ability to create videos and edit images. Stable Video can generate videos from text and images, powered by a free and open-source platform. However, it has limitations such as needing substantial video memory. Emu Video impresses with its ability to create natural and creative content, with high-quality and faithful results. Emu Edit enables iterative image editing, allowing for precise control over image changes. These new tools represent significant advancements in AI technology, offering exciting possibilities for content creation."
   },
-  "The BEST VR Headset in the WORLD Just Got BEAT! - The Varjo XR4 has Arrived!": {
-    "id": "WoiEhoxKXTc",
-    "summary": "This week in VR news included Vario launching its XR4 headset, Valve releasing a Quest compatible app called SteamLink for wireless VR streaming, HTC launching their tracker ultimate for full body tracking, and VR chat introducing in-game paid subscriptions; all signaling significant advancements in the VR industry. The Vario XR4, priced at $10000, offers the highest resolution yet in a VR headset and has realistic pass-through capabilities."
+  "Godot Powered W4 Games Gets Huge $15,000,000 Investment": {
+    "id": "LDC5RXfcb_o",
+    "summary": "W4 Games, closely connected to the gamedev community, received a $15 million investment round led by OSS Capital, ensuring their pivotal role in enhancing the open-source GDAU engine's capabilities. The company is known for providing middleware solutions and support for consoles, contributing to GDAU's development. They aim for global expansion and doubling their team size in the coming 18 months. Despite concerns about the potential impact on GDAU's funding, the symbiotic relationship and shared team members alleviate worries. With their recent investments and contributions, W4 Games continues to positively impact and innovate within the game development community."
   },
-  "SLIME VR: CRAZY CHEAP Full-Body Tracking for EVERYONE! (Quest 2 &amp; 3)": {
-    "id": "QaJhDCtGlBY",
-    "summary": "This article discusses Slime VR, affordable full body trackers for VR gaming. They are open-source, compatible with any VR headset and don't require a PC. Despite initial challenges with set-up and calibration, the article praises the product for its significantly improved tracking quality. Issues noted include production and delivery delays, as well as defects in some units. However, the open-source nature allows for a do-it-yourself approach, creating opportunities for cheaper configurations and enhancements by the user community.\n"
+  "Best Of Open Source Game Development Tools": {
+    "id": "2MB9cAwC0Nw",
+    "summary": "In this video, Mike discusses a wide range of open-source game development tools. He highlights various game engines including GDAU, Stride, O3D, and G Develop. Mike also explores art tools like Blender, Krita, and Material Maker, offering insights on animation and audio solutions such as Synfig, Audacity, LMMS, and Ardor. The talk covers a multitude of open-source software for game development, offering developers an array of options for their projects. Overall, it serves as a valuable resource for those interested in open-source game development."
   },
-  "mainSummary": "The article introduces Fooocus, a user-friendly interface for Stable Diffusion, and its installation process. It emphasizes AI's potential to boost creativity but highlights copyright issues. It also provides a tutorial on using AI image generation software, including instructions for workspace setup, features utilisation, and refining images for improved results. Furthermore, the article discusses training an AI model to create virtual outfits with Coya SS GUI. Lastly, it recounts significant VR industry updates, including new hardware launches and software releases, and reviews Slime VR body trackers."
+  "Best of 2023 Mega Bundle - 23 for $23 Unity Asset Bundle": {
+    "id": "1JUXb5dKVR4",
+    "summary": "The article discusses a new Mega bundle for Unity, comprising 23 assets for $23. The bundle includes a variety of assets released in 2023, supporting all major pipelines. It features environment packs, character behaviors, UI elements, and more. The author highlights the value of the bundle, despite recent concerns with Unity. They also mention the option to export assets to other game engines. The article concludes by encouraging readers to share their thoughts on the bundle."
+  },
+  "mainSummary": "The article covers a range of AI and VR advancements. It discusses the creation of custom AI voices using the Cookie TTS extension, VR updates, Google's new AI Gemini, and Adobe's Firefly AI text-to-image improvements. Additionally, it mentions three new AI technologies for video creation and editing and W4 Games' $15 million investment to enhance the open-source GDAU engine. The article also includes a video on open-source game development tools and a new Unity Mega bundle comprising 23 assets. It emphasizes the potential impact of these advancements and encourages engagement from readers."
 }

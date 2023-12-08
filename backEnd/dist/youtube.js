@@ -87,7 +87,7 @@ function getSubscriptions() {
             // prune videos older than a week
             const videosFromThisWeek = videosFromChannel.results.filter((vidData) => {
                 const date = vidData.publishedAt.split('T')[0];
-                return (0, time_1.isDateMoreThanAWeekOld)(date);
+                return !(0, time_1.isDateMoreThanAWeekOld)(date);
             });
             // save latest videos
             latestVideosFromThisWeek = [...latestVideosFromThisWeek, ...videosFromThisWeek];

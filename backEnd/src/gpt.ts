@@ -46,7 +46,7 @@ export default async function summariseContent(content:string, condition="make i
   if(countWords(toSummarise) > 2800){toSummarise = await compressContentForGpt(toSummarise)}
   
   const completion = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-3.5-turbo-1106",
       messages:[
         {role: "user", content: "here's an article/transcript. please summarise it"},
         {role: "user", content: toSummarise},
