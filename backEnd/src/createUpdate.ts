@@ -1,5 +1,5 @@
-import summariseContent from "./gpt.js"
-import { getCaptions, getSubscriptions } from "./youtube.js"
+import summariseContent from "./gpt"
+import { getCaptions, getSubscriptions } from "./youtube"
 import * as fs from 'fs'
 
 interface UpdateData{

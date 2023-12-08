@@ -1,7 +1,7 @@
 console.clear()
-import createUpdate from "./createUpdate.js";
+import createUpdate from "./createUpdate";
 import cron from 'node-cron';
-import startServer from "./startServer.js";
+import startServer from "./startServer";
 
 
 // setup cron job

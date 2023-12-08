@@ -1,7 +1,7 @@
 import search from 'youtube-search';
-import { keys } from './dotenv.js';
+import { keys } from './dotenv';
 import * as fs from 'fs';
-import { isDateMoreThanAWeekOld } from './time.js';
+import { isDateMoreThanAWeekOld } from './time';
 const getSubtitles = require('youtube-captions-scraper').getSubtitles;
 
 async function getLatestVideosFromChannel(channelId:string, num=3){

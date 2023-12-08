@@ -26,8 +26,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const gpt_js_1 = __importDefault(require("./gpt.js"));
-const youtube_js_1 = require("./youtube.js");
+const gpt_1 = __importDefault(require("./gpt"));
+const youtube_1 = require("./youtube");
 const fs = __importStar(require("fs"));
 function writeToJSONFile(obj, filePath) {
     try {
@@ -55,14 +55,14 @@ async function createUpdate() {
     const dataToWrite = {};
     // get subs
     console.log("getting subs");
-    const subs = await (0, youtube_js_1.getSubscriptions)();
+    const subs = await (0, youtube_1.getSubscriptions)();
     let summarries = "";
     // get captions, summarise them and input data to write
     for (let index = 0; index < subs.length; index++) {
         console.log(`Summarising ${index + 1}/${subs.length}`);
         const vid = subs[index];
-        const cap = await (0, youtube_js_1.getCaptions)(vid.id);
-        const summary = await (0, gpt_js_1.default)(cap);
+        const cap = await (0, youtube_1.getCaptions)(vid.id);
+        const summary = await (0, gpt_1.default)(cap);
         summarries += " " + summary;
         dataToWrite[vid.title] = {
             id: vid.id,
@@ -71,7 +71,7 @@ async function createUpdate() {
     }
     console.log("finished summaries, now creating main summary");
     // create main summary 
-    const mainSummary = await (0, gpt_js_1.default)(summarries);
+    const mainSummary = await (0, gpt_1.default)(summarries);
     dataToWrite['mainSummary'] = mainSummary;
     // write data to disk
     writeToJSONFile(dataToWrite, `data/previousUpdateData/${getTodaysDateAsString()}_update.json`);

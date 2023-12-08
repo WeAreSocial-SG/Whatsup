@@ -4,14 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 console.clear();
-const createUpdate_js_1 = __importDefault(require("./createUpdate.js"));
+const createUpdate_1 = __importDefault(require("./createUpdate"));
 const node_cron_1 = __importDefault(require("node-cron"));
-const startServer_js_1 = __importDefault(require("./startServer.js"));
+const startServer_1 = __importDefault(require("./startServer"));
 // setup cron job
 const forceToCreateNewUpdate = false;
-const scheduledTask = node_cron_1.default.schedule('0 0 * * 0', async () => { (0, createUpdate_js_1.default)(); }, { timezone: 'Asia/Singapore' });
+const scheduledTask = node_cron_1.default.schedule('0 0 * * 0', async () => { (0, createUpdate_1.default)(); }, { timezone: 'Asia/Singapore' });
 if (forceToCreateNewUpdate) {
-    (0, createUpdate_js_1.default)();
+    (0, createUpdate_1.default)();
 }
 // start express server
-const server = (0, startServer_js_1.default)();
+const server = (0, startServer_1.default)();
