@@ -22,15 +22,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const openai_1 = __importStar(require("openai"));
 const dotenv_1 = require("./dotenv");
@@ -53,40 +44,36 @@ function chopStringIntoArray(text, chunkSize = 1000) {
     return chunkedStrings;
 }
 // for when the content is larger than 4096 tokens
-function compressContentForGpt(content) {
-    return __awaiter(this, void 0, void 0, function* () {
-        let finalContent = content;
-        while (countWords(finalContent) > 2800) {
-            const chunks = chopStringIntoArray(content, 2800);
-            let newFinalContent = "";
-            for (let index = 0; index < chunks.length; index++) {
-                const chunk = chunks[index];
-                const summary = yield summariseContent(chunk, "make it less than 1000 words");
-                newFinalContent += " " + summary;
-            }
-            finalContent = newFinalContent;
+async function compressContentForGpt(content) {
+    let finalContent = content;
+    while (countWords(finalContent) > 2800) {
+        const chunks = chopStringIntoArray(content, 2800);
+        let newFinalContent = "";
+        for (let index = 0; index < chunks.length; index++) {
+            const chunk = chunks[index];
+            const summary = await summariseContent(chunk, "make it less than 1000 words");
+            newFinalContent += " " + summary;
         }
-        return finalContent;
-    });
+        finalContent = newFinalContent;
+    }
+    return finalContent;
 }
 // main function
-function summariseContent(content, condition = "make it less than 100 words") {
-    return __awaiter(this, void 0, void 0, function* () {
-        let toSummarise = content;
-        // compress content if it's bigger then 4096 tokens
-        if (countWords(toSummarise) > 2800) {
-            toSummarise = yield compressContentForGpt(toSummarise);
-        }
-        const completion = yield openai.chat.completions.create({
-            model: "gpt-3.5-turbo-1106",
-            messages: [
-                { role: "user", content: "here's an article/transcript. please summarise it" },
-                { role: "user", content: toSummarise },
-                { role: "user", content: condition },
-            ],
-        });
-        const reply = completion.choices[0].message.content;
-        return reply;
+async function summariseContent(content, condition = "make it less than 100 words") {
+    let toSummarise = content;
+    // compress content if it's bigger then 4096 tokens
+    if (countWords(toSummarise) > 2800) {
+        toSummarise = await compressContentForGpt(toSummarise);
+    }
+    const completion = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo-1106",
+        messages: [
+            { role: "user", content: "here's an article/transcript. please summarise it" },
+            { role: "user", content: toSummarise },
+            { role: "user", content: condition },
+        ],
     });
+    const reply = completion.choices[0].message.content;
+    return reply;
 }
 exports.default = summariseContent;

@@ -22,15 +22,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -41,27 +32,23 @@ const dotenv_1 = require("./dotenv");
 const fs = __importStar(require("fs"));
 const time_1 = require("./time");
 const getSubtitles = require('youtube-captions-scraper').getSubtitles;
-function getLatestVideosFromChannel(channelId, num = 3) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const opts = {
-            maxResults: num,
-            key: dotenv_1.keys.googleCloud,
-            channelId: channelId,
-            order: 'date',
-        };
-        const results = yield (0, youtube_search_1.default)('', opts);
-        return results;
-    });
+async function getLatestVideosFromChannel(channelId, num = 3) {
+    const opts = {
+        maxResults: num,
+        key: dotenv_1.keys.googleCloud,
+        channelId: channelId,
+        order: 'date',
+    };
+    const results = await (0, youtube_search_1.default)('', opts);
+    return results;
 }
-function getCaptions(id) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const transcriptData = yield getSubtitles({ videoID: id });
-        let transcript = "";
-        for (let index = 0; index < transcriptData.length; index++) {
-            transcript += " " + transcriptData[index].text;
-        }
-        return transcript;
-    });
+async function getCaptions(id) {
+    const transcriptData = await getSubtitles({ videoID: id });
+    let transcript = "";
+    for (let index = 0; index < transcriptData.length; index++) {
+        transcript += " " + transcriptData[index].text;
+    }
+    return transcript;
 }
 exports.getCaptions = getCaptions;
 function getChannelIds() {
@@ -74,25 +61,23 @@ function getChannelIds() {
     });
     return ids;
 }
-function getSubscriptions() {
-    return __awaiter(this, void 0, void 0, function* () {
-        // get channel ids you subscribe to
-        const channelIds = getChannelIds();
-        let latestVideosFromThisWeek = [];
-        // for every channel get latest videos and only include videos in the past week
-        for (let index = 0; index < channelIds.length; index++) {
-            // get latest videos
-            const id = channelIds[index];
-            const videosFromChannel = yield getLatestVideosFromChannel(id);
-            // prune videos older than a week
-            const videosFromThisWeek = videosFromChannel.results.filter((vidData) => {
-                const date = vidData.publishedAt.split('T')[0];
-                return !(0, time_1.isDateMoreThanAWeekOld)(date);
-            });
-            // save latest videos
-            latestVideosFromThisWeek = [...latestVideosFromThisWeek, ...videosFromThisWeek];
-        }
-        return latestVideosFromThisWeek;
-    });
+async function getSubscriptions() {
+    // get channel ids you subscribe to
+    const channelIds = getChannelIds();
+    let latestVideosFromThisWeek = [];
+    // for every channel get latest videos and only include videos in the past week
+    for (let index = 0; index < channelIds.length; index++) {
+        // get latest videos
+        const id = channelIds[index];
+        const videosFromChannel = await getLatestVideosFromChannel(id);
+        // prune videos older than a week
+        const videosFromThisWeek = videosFromChannel.results.filter((vidData) => {
+            const date = vidData.publishedAt.split('T')[0];
+            return !(0, time_1.isDateMoreThanAWeekOld)(date);
+        });
+        // save latest videos
+        latestVideosFromThisWeek = [...latestVideosFromThisWeek, ...videosFromThisWeek];
+    }
+    return latestVideosFromThisWeek;
 }
 exports.getSubscriptions = getSubscriptions;

@@ -22,15 +22,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -59,34 +50,32 @@ function getTodaysDateAsString() {
     const dateString = `${year}-${formattedMonth}-${formattedDay}`;
     return dateString;
 }
-function createUpdate() {
-    return __awaiter(this, void 0, void 0, function* () {
-        console.log("creating an update");
-        const dataToWrite = {};
-        // get subs
-        console.log("getting subs");
-        const subs = yield (0, youtube_1.getSubscriptions)();
-        let summarries = "";
-        // get captions, summarise them and input data to write
-        for (let index = 0; index < subs.length; index++) {
-            console.log(`Summarising ${index + 1}/${subs.length}`);
-            const vid = subs[index];
-            const cap = yield (0, youtube_1.getCaptions)(vid.id);
-            const summary = yield (0, gpt_1.default)(cap);
-            summarries += " " + summary;
-            dataToWrite[vid.title] = {
-                id: vid.id,
-                summary: summary
-            };
-        }
-        console.log("finished summaries, now creating main summary");
-        // create main summary 
-        const mainSummary = yield (0, gpt_1.default)(summarries);
-        dataToWrite['mainSummary'] = mainSummary;
-        // write data to disk
-        writeToJSONFile(dataToWrite, `data/previousUpdateData/${getTodaysDateAsString()}_update.json`);
-        writeToJSONFile(dataToWrite, `data/currentData.json`);
-        console.log("finished creating update");
-    });
+async function createUpdate() {
+    console.log("creating an update");
+    const dataToWrite = {};
+    // get subs
+    console.log("getting subs");
+    const subs = await (0, youtube_1.getSubscriptions)();
+    let summarries = "";
+    // get captions, summarise them and input data to write
+    for (let index = 0; index < subs.length; index++) {
+        console.log(`Summarising ${index + 1}/${subs.length}`);
+        const vid = subs[index];
+        const cap = await (0, youtube_1.getCaptions)(vid.id);
+        const summary = await (0, gpt_1.default)(cap);
+        summarries += " " + summary;
+        dataToWrite[vid.title] = {
+            id: vid.id,
+            summary: summary
+        };
+    }
+    console.log("finished summaries, now creating main summary");
+    // create main summary 
+    const mainSummary = await (0, gpt_1.default)(summarries);
+    dataToWrite['mainSummary'] = mainSummary;
+    // write data to disk
+    writeToJSONFile(dataToWrite, `data/previousUpdateData/${getTodaysDateAsString()}_update.json`);
+    writeToJSONFile(dataToWrite, `data/currentData.json`);
+    console.log("finished creating update");
 }
 exports.default = createUpdate;
