@@ -8,10 +8,6 @@ const createUpdate_1 = __importDefault(require("./createUpdate"));
 const node_cron_1 = __importDefault(require("node-cron"));
 const startServer_1 = __importDefault(require("./startServer"));
 // setup cron job
-const forceToCreateNewUpdate = false;
 const scheduledTask = node_cron_1.default.schedule('0 0 * * 0', async () => { (0, createUpdate_1.default)(); }, { timezone: 'Asia/Singapore' });
-if (forceToCreateNewUpdate) {
-    (0, createUpdate_1.default)();
-}
 // start express server
 const server = (0, startServer_1.default)();

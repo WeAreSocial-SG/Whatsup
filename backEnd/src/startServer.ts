@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import * as fs from 'fs';
 import cors from 'cors';
+import createUpdate from './createUpdate';
 
 export default function startServer(){
     const app = express();
@@ -21,6 +22,17 @@ export default function startServer(){
             res.status(500).json({ error: 'Failed to read file' }); // Send an error response if file reading fails
         }
     });
+    // start update manually
+    app.get('/manualUpdate', (req:Request, res:Response)=>{
+        try{
+            createUpdate()
+            res.status(500).send('ok updating now'); // Send an error response if file reading fails
+        }
+        catch(err){
+            console.error(err);
+            res.status(500).json({ error: 'Failed to read file' }); // Send an error response if file reading fails
+        }
+    })
     // todo create endpoint to read previous updates
     // Start the server
     app.listen(PORT, () => {

@@ -29,6 +29,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const fs = __importStar(require("fs"));
 const cors_1 = __importDefault(require("cors"));
+const createUpdate_1 = __importDefault(require("./createUpdate"));
 function startServer() {
     const app = (0, express_1.default)();
     const PORT = 4000;
@@ -46,6 +47,17 @@ function startServer() {
         }
         catch (err) {
             console.error('Error reading file:', err);
+            res.status(500).json({ error: 'Failed to read file' }); // Send an error response if file reading fails
+        }
+    });
+    // start update manually
+    app.get('/manualUpdate', (req, res) => {
+        try {
+            (0, createUpdate_1.default)();
+            res.status(500).send('ok updating now'); // Send an error response if file reading fails
+        }
+        catch (err) {
+            console.error(err);
             res.status(500).json({ error: 'Failed to read file' }); // Send an error response if file reading fails
         }
     });
