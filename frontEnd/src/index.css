@@ -55,7 +55,16 @@ html{height: 100%; width: 100%; display: flex; justify-content: center; backgrou
 *{color: #c5fc97}
 body{width: 100%; max-width: 1000px;}
 *{max-width: 100%;}
+
 /* .border {outline: solid 1px rgb(47, 255, 0);} */
+
+
+/* make fit content and add margine below */
+body{padding-bottom: 5rem; height: max-content;}
+
+/* style hr */
+hr{margin: 1rem 2rem; border-color: #c5fc97;}
+
 
 /* fonts */
 .noto{font-family: 'Noto Serif Display', serif !important;}

@@ -30,6 +30,7 @@ export default function App() {
         </div>
         <p className="weekSummary paddingRem border">{contentData.mainSummary}</p>
       </div>
+      <hr />
       {/* main content */}
       <div className="contentContainer">
         {}
@@ -39,6 +40,7 @@ export default function App() {
           return <VideoBlock title={key} summary={dataBlock.summary} id={dataBlock.id!}/>
         })}
       </div>
+      <hr />
     </div>
   )
 }
