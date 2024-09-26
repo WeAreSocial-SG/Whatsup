@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isDateMoreThanAWeekOld = void 0;
+exports.isDateMoreThanAWeekOld = isDateMoreThanAWeekOld;
 function isDateMoreThanAWeekOld(dateString) {
     // Parse the input date string into a Date object
     const inputDate = new Date(dateString);
@@ -13,4 +13,3 @@ function isDateMoreThanAWeekOld(dateString) {
     // Check if the difference is greater than or equal to a week
     return differenceInMilliseconds >= millisecondsInAWeek;
 }
-exports.isDateMoreThanAWeekOld = isDateMoreThanAWeekOld;

@@ -23,6 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = summariseContent;
 const openai_1 = __importStar(require("openai"));
 const dotenv_1 = require("./dotenv");
 // seutp open ai
@@ -76,4 +77,3 @@ async function summariseContent(content, condition = "make it less than 100 word
     const reply = completion.choices[0].message.content;
     return reply;
 }
-exports.default = summariseContent;

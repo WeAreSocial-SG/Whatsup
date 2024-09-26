@@ -2,11 +2,11 @@ import summariseContent from "./gpt.js"
 import { getCaptions, getSubscriptions } from "./youtube.js"
 import * as fs from 'fs'
 
-interface UpdateData{
-    [index:string]:{
-        id:string,
-        summary:string
-    }|string,
+interface UpdateData {
+    [index: string]: {
+        id: string,
+        summary: string
+    } | string,
 }
 function writeToJSONFile(obj: any, filePath: string): void {
     try {
@@ -29,23 +29,27 @@ function getTodaysDateAsString(): string {
     return dateString;
 }
 
-export default async function createUpdate(){
+export default async function createUpdate() {
     console.log("creating an update");
-    const dataToWrite:UpdateData = {}
+    const dataToWrite: UpdateData = {}
     // get subs
     console.log("getting subs")
     const subs = await getSubscriptions()
     let summarries = ""
     // get captions, summarise them and input data to write
     for (let index = 0; index < subs.length; index++) {
-        console.log(`Summarising ${index+1}/${subs.length}`)
-        const vid = subs[index];
-        const cap = await getCaptions(vid.id);
-        const summary = await summariseContent(cap)
-        summarries += " " + summary
-        dataToWrite[vid.title] = {
-            id:vid.id,
-            summary:summary!
+        try {
+            console.log(`Summarising ${index + 1}/${subs.length}`)
+            const vid = subs[index];
+            const cap = await getCaptions(vid.id);
+            const summary = await summariseContent(cap)
+            summarries += " " + summary
+            dataToWrite[vid.title] = {
+                id: vid.id,
+                summary: summary!
+            }
+        } catch (e) {
+            console.log(e)
         }
     }
     console.log("finished summaries, now creating main summary")

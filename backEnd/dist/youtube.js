@@ -26,7 +26,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getSubscriptions = exports.getCaptions = void 0;
+exports.getCaptions = getCaptions;
+exports.getSubscriptions = getSubscriptions;
 const youtube_search_1 = __importDefault(require("youtube-search"));
 const dotenv_1 = require("./dotenv");
 const fs = __importStar(require("fs"));
@@ -50,7 +51,6 @@ async function getCaptions(id) {
     }
     return transcript;
 }
-exports.getCaptions = getCaptions;
 function getChannelIds() {
     const ids = [];
     // read file
@@ -80,4 +80,3 @@ async function getSubscriptions() {
     }
     return latestVideosFromThisWeek;
 }
-exports.getSubscriptions = getSubscriptions;
