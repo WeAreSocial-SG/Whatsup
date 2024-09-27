@@ -5,12 +5,12 @@ import startServer from "./startServer";
 
 
 // setup cron job
-const scheduledTask = cron.schedule(
-    '0 0 * * 0',
-    async () => { createUpdate() },
-    { timezone: 'Asia/Singapore' }
-);
-createUpdate();
+// const scheduledTask = cron.schedule(
+//     '0 0 * * 0',
+//     async () => { createUpdate() },
+//     { timezone: 'Asia/Singapore' }
+// );
+// createUpdate();
 
 
 // start express server

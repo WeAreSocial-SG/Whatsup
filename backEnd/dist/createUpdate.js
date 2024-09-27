@@ -60,15 +60,20 @@ async function createUpdate() {
     let summarries = "";
     // get captions, summarise them and input data to write
     for (let index = 0; index < subs.length; index++) {
-        console.log(`Summarising ${index + 1}/${subs.length}`);
-        const vid = subs[index];
-        const cap = await (0, youtube_js_1.getCaptions)(vid.id);
-        const summary = await (0, gpt_js_1.default)(cap);
-        summarries += " " + summary;
-        dataToWrite[vid.title] = {
-            id: vid.id,
-            summary: summary
-        };
+        try {
+            console.log(`Summarising ${index + 1}/${subs.length}`);
+            const vid = subs[index];
+            const cap = await (0, youtube_js_1.getCaptions)(vid.id);
+            const summary = await (0, gpt_js_1.default)(cap);
+            summarries += " " + summary;
+            dataToWrite[vid.title] = {
+                id: vid.id,
+                summary: summary
+            };
+        }
+        catch (e) {
+            console.log(e);
+        }
     }
     console.log("finished summaries, now creating main summary");
     // create main summary 
